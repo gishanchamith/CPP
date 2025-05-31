@@ -102,6 +102,59 @@ l.unique();
 </div>
 
 <div class="template-block">
+  <div class="template-title">🔑 C++ STL <code>std::unordered_map</code> (Hash Map) – Key Commands</div>
+  <pre><code id="code22">
+// Include header
+#include &lt;unordered_map&gt;
+
+// Create unordered_map
+std::unordered_map&lt;std::string, int&gt; umap;
+
+// Insert key-value pairs
+umap["Alice"] = 21;
+umap.insert({"Bob", 30});
+
+// Access values
+int age = umap["Alice"];
+int age2 = umap.at("Bob");
+
+// Find element
+if (umap.find("Alice") != umap.end()) { /* found */ }
+
+// Iterate
+for (auto &pair : umap) {
+    std::cout &lt;&lt; pair.first &lt;&lt; ": " &lt;&lt; pair.second &lt;&lt; "\n";
+}
+
+// Remove by key
+umap.erase("Bob");
+
+// Size and clear
+umap.size();
+umap.clear();
+umap.empty();
+  </code></pre>
+  <button class="copy-btn" data-target="code22">Copy</button>
+</div>
+
+<div class="template-block">
+  <div class="template-title">⏫ C++ STL Heap Functions (<code>&lt;algorithm&gt;</code> on <code>vector</code>)</div>
+  <pre><code id="code23">
+// Include headers
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+// Example vector
+std::vector&lt;int&gt; v = {12, 9, 15, 6, 3};
+
+// Build a max-heap
+std::make_heap(v.begin(), v.end());
+
+// Push new value (add to vector first)
+v.push_back(_
+
+
+<div class="template-block">
   <div class="template-title">💡 C++ <code>std::list</code> – Concepts & Notes</div>
   <pre><code id="code22">
 - Doubly linked list (not contiguous in memory)
