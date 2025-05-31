@@ -229,6 +229,257 @@ dq.size();           // Number of elements
     <button class="copy-btn" data-target="code9">Copy</button>
   </div>
 
+  <!-- 🌳 Tree Structure (Binary Tree) -->
+<div class="template-block">
+  <div class="template-title">🌳 Binary Tree Node Structure</div>
+  <pre><code id="tree1">
+struct TreeNode {
+    int val;
+    TreeNode *left, *right;
+    TreeNode(int v) : val(v), left(nullptr), right(nullptr) {}
+};
+// Traversals
+void inorder(TreeNode* root) {
+    if (!root) return;
+    inorder(root->left);
+    cout << root->val << " ";
+    inorder(root->right);
+}
+void preorder(TreeNode* root) {
+    if (!root) return;
+    cout << root->val << " ";
+    preorder(root->left);
+    preorder(root->right);
+}
+void postorder(TreeNode* root) {
+    if (!root) return;
+    postorder(root->left);
+    postorder(root->right);
+    cout << root->val << " ";
+}
+  </code></pre>
+  <button class="copy-btn" data-target="tree1">Copy</button>
+</div>
+
+<!-- 🌳 Generic Tree (adjacency list) -->
+<div class="template-block">
+  <div class="template-title">🌳 General Tree (Adjacency List)</div>
+  <pre><code id="tree2">
+int n; // number of nodes
+vector<vector<int>> tree(n); // 0-based node indexing
+
+// Add edge: tree[u].push_back(v); tree[v].push_back(u);
+// DFS Tree Traversal
+void dfs(int node, int parent) {
+    for (int child : tree[node]) {
+        if (child != parent) {
+            dfs(child, node);
+        }
+    }
+}
+  </code></pre>
+  <button class="copy-btn" data-target="tree2">Copy</button>
+</div>
+
+<!-- Graph Representations -->
+<div class="template-block">
+  <div class="template-title">🌐 Graph Representations</div>
+  <pre><code id="graph1">
+// 1. Adjacency List (most common)
+int n;
+vector<vector<int>> adj(n);
+// add edge: adj[u].push_back(v); adj[v].push_back(u); // undirected
+
+// 2. Adjacency Matrix (for dense/small graphs)
+vector<vector<int>> mat(n, vector<int>(n, 0));
+// add edge: mat[u][v] = 1;
+
+// 3. Edge List
+vector<pair<int, int>> edges;
+// add edge: edges.push_back({u, v});
+  </code></pre>
+  <button class="copy-btn" data-target="graph1">Copy</button>
+</div>
+
+<!-- MST: Kruskal's Algorithm -->
+<div class="template-block">
+  <div class="template-title">🌉 Kruskal's Algorithm (MST, O(E log E))</div>
+  <pre><code id="mst1">
+struct DSU {
+    vector<int> p;
+    DSU(int n): p(n) { iota(p.begin(), p.end(), 0); }
+    int find(int x) { return x == p[x] ? x : p[x] = find(p[x]); }
+    bool unite(int x, int y) {
+        x = find(x); y = find(y);
+        if (x == y) return false;
+        p[y] = x; return true;
+    }
+};
+
+struct Edge { int u, v, w; };
+vector<Edge> edges;
+int kruskal(int n) {
+    sort(edges.begin(), edges.end(), [](Edge a, Edge b){ return a.w < b.w; });
+    DSU dsu(n); int mst = 0;
+    for (auto& e : edges)
+        if (dsu.unite(e.u, e.v)) mst += e.w;
+    return mst;
+}
+  </code></pre>
+  <button class="copy-btn" data-target="mst1">Copy</button>
+</div>
+
+<!-- MST: Prim's Algorithm -->
+<div class="template-block">
+  <div class="template-title">🏗️ Prim's Algorithm (MST, O(E log V))</div>
+  <pre><code id="mst2">
+int prim(int n, vector<vector<pair<int,int>>> &adj) {
+    vector<bool> vis(n, false);
+    priority_queue<pair<int,int>, vector<pair<int,int>>, greater<>> pq;
+    pq.push({0, 0}); int cost = 0;
+    while (!pq.empty()) {
+        auto [w,u] = pq.top(); pq.pop();
+        if (vis[u]) continue;
+        vis[u] = true; cost += w;
+        for (auto &[v, wt] : adj[u])
+            if (!vis[v]) pq.push({wt, v});
+    }
+    return cost;
+}
+  </code></pre>
+  <button class="copy-btn" data-target="mst2">Copy</button>
+</div>
+
+<!-- Single Source Shortest Path (BFS, Dijkstra, Bellman-Ford, SPFA) -->
+<div class="template-block">
+  <div class="template-title">🚀 Single Source Shortest Path</div>
+  <pre><code id="ssp1">
+// BFS for unweighted graphs
+vector<int> dist(n, -1);
+queue<int> q; dist[src] = 0; q.push(src);
+while (!q.empty()) {
+    int u = q.front(); q.pop();
+    for (int v : adj[u]) if (dist[v] == -1)
+        dist[v] = dist[u] + 1, q.push(v);
+}
+
+// Dijkstra (for positive weights)
+priority_queue<pair<long long, int>, vector<pair<long long,int>>, greater<>> pq;
+vector<long long> d(n, LLONG_MAX); d[src] = 0; pq.push({0, src});
+while (!pq.empty()) {
+    auto [du, u] = pq.top(); pq.pop();
+    if (du > d[u]) continue;
+    for (auto &[v, w] : adj[u])
+        if (d[v] > d[u]+w) d[v] = d[u]+w, pq.push({d[v], v});
+}
+
+// Bellman-Ford (handles negative weights)
+vector<long long> dist(n, LLONG_MAX); dist[src] = 0;
+for (int i = 0; i < n-1; ++i)
+  for (auto &[u,v,w]: edges)
+    if (dist[u]!=LLONG_MAX && dist[v]>dist[u]+w)
+        dist[v]=dist[u]+w;
+  </code></pre>
+  <button class="copy-btn" data-target="ssp1">Copy</button>
+</div>
+
+<!-- SPFA (Shortest Path Faster Algorithm) -->
+<div class="template-block">
+  <div class="template-title">⚡ SPFA (Shortest Path Faster Algorithm)</div>
+  <pre><code id="ssp2">
+vector<long long> spfa(int n, int src, vector<vector<pair<int,int>>> &adj) {
+    vector<long long> d(n, LLONG_MAX); d[src] = 0;
+    vector<bool> inq(n, false); queue<int> q; q.push(src); inq[src]=1;
+    while (!q.empty()) {
+        int u = q.front(); q.pop(); inq[u]=0;
+        for (auto &[v,w] : adj[u])
+            if (d[v] > d[u]+w) {
+                d[v]=d[u]+w;
+                if (!inq[v]) q.push(v), inq[v]=1;
+            }
+    }
+    return d;
+}
+  </code></pre>
+  <button class="copy-btn" data-target="ssp2">Copy</button>
+</div>
+
+<!-- Algorithmic Techniques -->
+<div class="template-block">
+  <div class="template-title">🛠️ Algorithm Design Techniques</div>
+  <pre><code id="algo1">
+// Recursion
+int f(int n) { return (n <= 1) ? 1 : n * f(n-1); }
+
+// Divide & Conquer: Merge Sort
+void mergeSort(vector<int>& a, int l, int r) {
+    if (r - l <= 1) return;
+    int m = (l + r) / 2;
+    mergeSort(a, l, m); mergeSort(a, m, r);
+    vector<int> tmp;
+    int i = l, j = m;
+    while (i < m && j < r) tmp.push_back(a[i]<a[j]?a[i++]:a[j++]);
+    while (i < m) tmp.push_back(a[i++]);
+    while (j < r) tmp.push_back(a[j++]);
+    for (int k = l; k < r; ++k) a[k] = tmp[k-l];
+}
+
+// Two Pointers
+int l = 0, r = 0, sum = 0;
+while (r < n) {
+    sum += a[r++];
+    while (sum > X) sum -= a[l++];
+}
+
+// Sliding Window
+int maxSum = 0, sum = 0, k = 3;
+for (int i = 0; i < n; ++i) {
+    sum += a[i];
+    if (i >= k) sum -= a[i - k];
+    if (i >= k-1) maxSum = max(maxSum, sum);
+}
+
+// Greedy: Activity Selection
+vector<pair<int,int>> a(n);
+sort(a.begin(), a.end(), [](auto x, auto y){ return x.second < y.second; });
+int count = 0, last = -1;
+for (auto [s,e] : a) if (s > last) last = e, ++count;
+
+// DP: 0/1 Knapsack
+int W = ...;
+vector<vector<int>> dp(n+1, vector<int>(W+1,0));
+for(int i=1;i<=n;++i) for(int w=0;w<=W;++w)
+    if (w >= wt[i-1]) dp[i][w] = max(dp[i-1][w], dp[i-1][w-wt[i-1]]+val[i-1]);
+    else dp[i][w] = dp[i-1][w];
+  </code></pre>
+  <button class="copy-btn" data-target="algo1">Copy</button>
+</div>
+
+<!-- Bit Tricks -->
+<div class="template-block">
+  <div class="template-title">💡 Useful Bit Manipulation</div>
+  <pre><code id="bits1">
+// Count set bits
+int bits = __builtin_popcount(x);      // for int
+int bitsll = __builtin_popcountll(x);  // for long long
+
+// Check if x is power of two
+bool isPow2 = x && !(x & (x - 1));
+
+// Get lowest set bit
+int lsb = x & -x;
+
+// Set/unset/toggle kth bit
+x |= (1 << k);    // set
+x &= ~(1 << k);   // unset
+x ^= (1 << k);    // toggle
+
+// Iterate all subsets of a set
+for (int mask = s; mask; mask = (mask-1)&s) { /*...*/ }
+  </code></pre>
+  <button class="copy-btn" data-target="bits1">Copy</button>
+</div>
+
   <!-- CONTINUE WITH YOUR OTHER TEMPLATES HERE AS BEFORE ... -->
 
 </main>
