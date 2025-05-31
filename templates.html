@@ -56,6 +56,114 @@ cout &lt;&lt; endl;
     <button class="copy-btn" data-target="code2">Copy</button>
   </div>
 
+<div class="template-block">
+  <div class="template-title">📋 C++ STL <code>std::list</code> – Key Commands</div>
+  <pre><code id="code21">
+// Include header
+#include &lt;list&gt;
+
+// Create list
+std::list&lt;int&gt; l;               // Empty list
+std::list&lt;int&gt; l2(5, 10);       // [10, 10, 10, 10, 10]
+std::list&lt;int&gt; l3 = {1, 2, 3};  // [1, 2, 3]
+
+// Add/Remove
+l.push_back(1);    // Add 1 at end
+l.push_front(2);   // Add 2 at front
+l.pop_back();      // Remove from end
+l.pop_front();     // Remove from front
+
+// Insert/Erase at position
+auto it = l.begin(); std::advance(it, 1);
+l.insert(it, 99);  // Insert 99 at 2nd position
+l.erase(it);       // Erase element at iterator
+
+// Remove by value
+l.remove(99);      // Remove all 99's
+
+// Access
+int first = l.front();
+int last = l.back();
+
+// Size and check
+l.size();
+l.empty();
+l.clear();
+
+// Iterate
+for (int x : l) std::cout &lt;&lt; x &lt;&lt; " ";
+
+// Sort, reverse, unique
+l.sort();
+l.reverse();
+l.unique();
+  </code></pre>
+  <button class="copy-btn" data-target="code21">Copy</button>
+</div>
+
+<div class="template-block">
+  <div class="template-title">💡 C++ <code>std::list</code> – Concepts & Notes</div>
+  <pre><code id="code22">
+- Doubly linked list (not contiguous in memory)
+- Fast insert/erase anywhere (O(1) if iterator known)
+- No random access by index (use iterators)
+- Good for frequent insertions/deletions
+- Prefer <vector> for fast random access
+  </code></pre>
+  <button class="copy-btn" data-target="code22">Copy</button>
+</div>
+
+<div class="template-block">
+  <div class="template-title">📚 C++ STL <code>stack</code></div>
+  <pre><code id="code31">
+// Stack = LIFO (Last In, First Out)
+#include &lt;stack&gt;
+std::stack&lt;int&gt; s;
+s.push(10);      // Add 10
+s.push(20);      // Add 20 (top)
+s.top();         // Get top element (20)
+s.pop();         // Remove top (now 10 is top)
+s.empty();       // Check if empty
+s.size();        // Number of elements
+  </code></pre>
+  <button class="copy-btn" data-target="code31">Copy</button>
+</div>
+
+<div class="template-block">
+  <div class="template-title">📚 C++ STL <code>queue</code></div>
+  <pre><code id="code32">
+// Queue = FIFO (First In, First Out)
+#include &lt;queue&gt;
+std::queue&lt;int&gt; q;
+q.push(10);      // Add 10
+q.push(20);      // Add 20
+q.front();       // First element (10)
+q.back();        // Last element (20)
+q.pop();         // Remove first (now 20 is front)
+q.empty();       // Check if empty
+q.size();        // Number of elements
+  </code></pre>
+  <button class="copy-btn" data-target="code32">Copy</button>
+</div>
+
+<div class="template-block">
+  <div class="template-title">📚 C++ STL <code>deque</code></div>
+  <pre><code id="code33">
+// Deque = Double-ended queue
+#include &lt;deque&gt;
+std::deque&lt;int&gt; dq;
+dq.push_back(10);    // [10]
+dq.push_front(5);    // [5, 10]
+dq.push_back(15);    // [5, 10, 15]
+dq.pop_front();      // [10, 15]
+dq.front();          // 10
+dq.back();           // 15
+dq.empty();          // Check if empty
+dq.size();           // Number of elements
+  </code></pre>
+  <button class="copy-btn" data-target="code33">Copy</button>
+</div>
+
   <div class="template-block">
     <div class="template-title">🧩 Modular Arithmetic Template</div>
     <pre><code id="code3">
