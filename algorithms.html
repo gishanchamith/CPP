@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Algorithms | codeHPT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>🛠 CS2023 Algorithms & Analysis</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="competitive.html">Competitive</a>
+    <a href="commands.html">Commands</a>
+    <a href="algorithms.html">Algorithms</a>
+  </nav>
+</header>
+<main>
+  <h2>🔢 1. Algorithm Analysis</h2>
+  <ul>
+    <li><b>Input size:</b> Determines how resource usage grows.</li>
+    <li><b>Time complexity:</b> Steps based on n</li>
+    <li><b>Space complexity:</b> Memory used based on n</li>
+    <li><b>Big-O, Big-Ω, Big-Θ:</b> Upper, lower, and tight bounds</li>
+    <li><b>Example:</b> <code>O(n²)</code> for two nested loops</li>
+  </ul>
+  <pre><code>for (int i = 0; i < n; i++) {
+  for (int j = 0; j < n; j++) {
+    sum += i + j;
+  }
+}</code></pre>
+
+  <h2>🔃 2. Sorting Algorithms</h2>
+  <h3>Bubble Sort</h3>
+  <pre><code>for (int i = 0; i < n; i++) {
+  for (int j = 0; j < n - i - 1; j++) {
+    if (arr[j] > arr[j+1])
+      swap(arr[j], arr[j+1]);
+  }
+}</code></pre>
+  <ul>
+    <li>Time: O(n²), Stable: Yes</li>
+  </ul>
+  <h3>Insertion Sort</h3>
+  <pre><code>for (int i = 1; i < n; i++) {
+  int key = arr[i], j = i - 1;
+  while (j >= 0 && arr[j] > key) {
+    arr[j + 1] = arr[j];
+    j--;
+  }
+  arr[j + 1] = key;
+}</code></pre>
+  <ul>
+    <li>Time: O(n²) worst, O(n) best, Stable: Yes</li>
+  </ul>
+  <h3>Merge Sort (Divide & Conquer)</h3>
+  <pre><code>void mergeSort(int arr[], int l, int r) {
+  if (l < r) {
+    int m = l + (r - l) / 2;
+    mergeSort(arr, l, m);
+    mergeSort(arr, m + 1, r);
+    merge(arr, l, m, r);
+  }
+}</code></pre>
+  <ul>
+    <li>Time: O(n log n), Stable: Yes</li>
+  </ul>
+
+  <h2>🔁 3. Recursion and Divide & Conquer</h2>
+  <h3>Recursion Example</h3>
+  <pre><code>int factorial(int n) {
+  if (n <= 1) return 1;
+  return n * factorial(n - 1);
+}</code></pre>
+  <h3>Divide & Conquer: Binary Search</h3>
+  <pre><code>int binarySearch(int arr[], int low, int high, int x) {
+  if (low > high) return -1;
+  int mid = (low + high) / 2;
+  if (arr[mid] == x) return mid;
+  if (arr[mid] > x)
+    return binarySearch(arr, low, mid - 1, x);
+  else
+    return binarySearch(arr, mid + 1, high, x);
+}</code></pre>
+
+  <h2>📊 4. Analyzing Recursion</h2>
+  <ul>
+    <li>Substitution method, Recursion Tree, Master Theorem</li>
+    <li>Example: T(n) = 2T(n/2) + O(n) ⇒ Θ(n log n)</li>
+  </ul>
+
+  <h2>📦 5. Basic Data Structures</h2>
+  <table>
+    <tr><th>Structure</th><th>Use-case</th><th>Time (Insert/Delete/Search)</th></tr>
+    <tr><td>Array</td><td>Indexing</td><td>O(1)/O(n)/O(n)</td></tr>
+    <tr><td>Linked List</td><td>Insert/Delete anywhere</td><td>O(1)/O(1)/O(n)</td></tr>
+    <tr><td>Stack (LIFO)</td><td>Undo, DFS</td><td>O(1)</td></tr>
+    <tr><td>Queue (FIFO)</td><td>BFS, scheduling</td><td>O(1)</td></tr>
+    <tr><td>Dictionary (Map)</td><td>Key-Value pairs</td><td>O(1)-O(log n)</td></tr>
+  </table>
+  <pre><code>stack&lt;int&gt; s;
+s.push(1); s.pop(); s.top();</code></pre>
+
+  <h2>🌳 6. Binary Search Trees (BST)</h2>
+  <ul>
+    <li>Property: Left &lt; Node, Right &gt; Node</li>
+    <li>Traversals: Inorder, Preorder, Postorder</li>
+  </ul>
+  <pre><code>Node* insert(Node* root, int key) {
+  if (!root) return new Node(key);
+  if (key < root->val) root->left = insert(root->left, key);
+  else root->right = insert(root->right, key);
+  return root;
+}</code></pre>
+
+  <h2>🏗 7. Heaps and Heap Sort</h2>
+  <ul>
+    <li>Heap: Complete Binary Tree, Max-Heap: parent ≥ children</li>
+    <li>Build Heap: for (int i = n/2 - 1; i >= 0; i--) heapify(arr, n, i);</li>
+    <li>Heap Sort: O(n log n), in-place, not stable</li>
+  </ul>
+
+  <h2>🔐 8. Hash Tables</h2>
+  <ul>
+    <li>Key concepts: Map keys to indices</li>
+    <li>Collision: Chaining (linked lists), Open Addressing (linear/quadratic probing, double hashing)</li>
+    <li>Example: <code>unordered_map&lt;string, int&gt; freq; freq[\"apple\"]++;</code></li>
+  </ul>
+
+  <h2>🌐 9. Graphs and Traversals</h2>
+  <ul>
+    <li>Representations: Adjacency Matrix, Adjacency List</li>
+    <li>BFS/DFS sample code included in your content above</li>
+  </ul>
+  <pre><code>queue&lt;int&gt; q;
+q.push(start);
+while (!q.empty()) {
+  int u = q.front(); q.pop();
+  for (int v : adj[u]) {
+    if (!visited[v]) {
+      visited[v] = true;
+      q.push(v);
+    }
+  }
+}</code></pre>
+  <pre><code>void dfs(int u) {
+  visited[u] = true;
+  for (int v : adj[u])
+    if (!visited[v]) dfs(v);
+}</code></pre>
+
+  <h2>🌲 10. Minimum Spanning Trees (MSTs)</h2>
+  <ul>
+    <li>Kruskal: Sort edges, add if no cycle (Union-Find)</li>
+    <li>Prim: Start from node, add smallest edge</li>
+  </ul>
+
+  <h2>🛣 11. Single Source Shortest Path</h2>
+  <ul>
+    <li>Bellman-Ford: Supports negative weights</li>
+    <li>Dijkstra: Only positive weights, uses priority queue</li>
+  </ul>
+  <pre><code>for (int i = 0; i < V-1; i++)
+  for (auto [u,v,w] : edges)
+    if (dist[u] + w < dist[v])
+      dist[v] = dist[u] + w;</code></pre>
+
+  <h2>🧠 12. Algorithm Design Techniques</h2>
+  <ul>
+    <li>Brute Force: Try everything</li>
+    <li>Greedy: Best choice each step</li>
+    <li>Dynamic Programming: Solve overlapping subproblems</li>
+  </ul>
+  <pre><code>int fib(int n) {
+  int dp[n+1];
+  dp[0]=0, dp[1]=1;
+  for (int i=2; i<=n; i++)
+    dp[i] = dp[i-1] + dp[i-2];
+  return dp[n];
+}</code></pre>
+
+  <h2>🧪 Practice Problem: Maximum Subarray Sum</h2>
+  <ul>
+    <li>Use Dynamic Programming (Kadane's Algorithm)</li>
+  </ul>
+</main>
+<footer>
+  © 2024 codeHPT by Gishan Chamith
+</footer>
+</body>
+</html>

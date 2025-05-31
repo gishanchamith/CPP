@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Competitive Programming | codeHPT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>🏆 Competitive Programming in C++</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="competitive.html">Competitive</a>
+    <a href="commands.html">Commands</a>
+    <a href="algorithms.html">Algorithms</a>
+  </nav>
+</header>
+<main>
+  <h2>🔧 1. C++ Language Essentials</h2>
+  <table>
+    <tr><th>Concept</th><th>Description</th></tr>
+    <tr><td>Fast I/O</td><td><code>ios::sync_with_stdio(false); cin.tie(0);</code> for faster input/output.</td></tr>
+    <tr><td>Data Types</td><td>Know when to use <code>int</code>, <code>long long</code>, etc. Prefer <code>long long</code> for large numbers.</td></tr>
+    <tr><td>Conditionals</td><td>Use <code>if</code>, <code>else</code>, <code>switch</code> for logic.</td></tr>
+    <tr><td>Loops</td><td>Efficiently use <code>for</code>, <code>while</code>, <code>do-while</code> loops.</td></tr>
+    <tr><td>Functions</td><td>Break code into functions for modularity.</td></tr>
+    <tr><td>Macros</td><td>Define shorthands (e.g., <code>#define int long long</code>).</td></tr>
+    <tr><td>Bitwise Operators</td><td>Use <code>&amp;</code>, <code>|</code>, <code>^</code>, etc. for fast manipulations.</td></tr>
+  </table>
+
+  <h2>🧠 2. Data Structures (DS)</h2>
+  <table>
+    <tr><th>DS</th><th>Description</th></tr>
+    <tr><td>Array</td><td>Fixed-size container.</td></tr>
+    <tr><td>Vector</td><td>Dynamic array: <code>vector&lt;int&gt; v;</code></td></tr>
+    <tr><td>String</td><td><code>string</code> class for text.</td></tr>
+    <tr><td>Stack/Queue/Deque</td><td>Classic containers.</td></tr>
+    <tr><td>Set/Multiset</td><td>Ordered unique/multi elements.</td></tr>
+    <tr><td>Map/Multimap</td><td>Key-value pairs.</td></tr>
+    <tr><td>Unordered Set/Map</td><td>Hash-based, fast average case.</td></tr>
+    <tr><td>Priority Queue</td><td>Max/min heap for greedy.</td></tr>
+    <tr><td>Pair</td><td>Store two values: <code>pair&lt;int, int&gt;</code></td></tr>
+    <tr><td>Custom Structs</td><td>Complex data per object.</td></tr>
+  </table>
+
+  <h2>⚙️ 3. Algorithms</h2>
+  <h3>📦 Searching & Sorting</h3>
+  <ul>
+    <li><b>binary_search()</b> - Sorted data, <b>O(log n)</b></li>
+    <li><b>lower_bound()</b>, <b>upper_bound()</b> - Positions in sorted containers</li>
+    <li><b>sort()</b> - Efficient built-in sorting</li>
+    <li>Custom sort with lambda/comparator</li>
+  </ul>
+  <h3>📐 Math & Number Theory</h3>
+  <ul>
+    <li>Prime Sieve, <b>GCD/LCM</b> (<code>__gcd</code>)</li>
+    <li>Modular arithmetic, Fast exponentiation</li>
+    <li>Bit Manipulation, Combinatorics (nCr, Pascal’s Triangle)</li>
+  </ul>
+
+  <h2>🔁 Recursion & Backtracking</h2>
+  <ul>
+    <li>DFS recursion, Backtracking (N-Queens, permutations)</li>
+    <li>Memoization (top-down DP)</li>
+  </ul>
+
+  <h2>🧩 Dynamic Programming (DP)</h2>
+  <ul>
+    <li>1D/2D DP (e.g., Fibonacci, Knapsack)</li>
+    <li>State compression (bitmask DP), DP on trees</li>
+    <li>Tabulation (bottom-up), memoization (top-down)</li>
+  </ul>
+
+  <h2>🌐 Graph Algorithms</h2>
+  <ul>
+    <li>BFS/DFS, Dijkstra, Bellman-Ford, Floyd-Warshall</li>
+    <li>Union-Find (DSU), Topological Sort, Tarjan’s Algorithm, Bridges</li>
+  </ul>
+
+  <h2>🔲 Geometry</h2>
+  <ul>
+    <li>Point/Line distance, Orientation, Convex Hull, Area calculations</li>
+  </ul>
+
+  <h2>🛠️ 4. STL & Macros</h2>
+  <ul>
+    <li>vector, pair, map, set, <b>sort(), find(), count(), accumulate()</b></li>
+    <li>priority_queue, deque, bitset, stack, queue</li>
+    <li>Macros: <code>#define int long long</code>, <code>#define pb push_back</code>, <code>#define all(x) x.begin(), x.end()</code></li>
+    <li><code>#define fastio ios::sync_with_stdio(false); cin.tie(0);</code></li>
+  </ul>
+
+  <h2>📂 5. Common Constants</h2>
+  <ul>
+    <li>MOD: 1e9 + 7 / 998244353</li>
+    <li>INF: 1e18 (for int64_t)</li>
+    <li>Directions: <code>{dx[], dy[]}</code> for grid movement</li>
+  </ul>
+
+  <h2>💻 6. Environment & Tools</h2>
+  <ul>
+    <li>Online Judges: Codeforces, AtCoder, LeetCode, HackerRank</li>
+    <li>IDE: VS Code, Sublime Text, Code::Blocks</li>
+    <li>Compiler: <code>g++ -std=c++17 -O2</code></li>
+    <li>Templates, debugging, personal snippet library</li>
+  </ul>
+</main>
+<footer>
+  © 2024 codeHPT by Gishan Chamith
+</footer>
+</body>
+</html>

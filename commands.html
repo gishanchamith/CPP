@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>C++ Commands | codeHPT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>📖 C++ Commands, Keywords & Functions</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="competitive.html">Competitive</a>
+    <a href="commands.html">Commands</a>
+    <a href="algorithms.html">Algorithms</a>
+  </nav>
+</header>
+<main>
+  <h2>✅ Core C++ Commands & Keywords</h2>
+  <table>
+    <tr><th>Command / Keyword</th><th>Description</th></tr>
+    <tr><td>#include &lt;...&gt;</td><td>Includes a header file</td></tr>
+    <tr><td>using namespace std;</td><td>Shortcut for <code>std::</code></td></tr>
+    <tr><td>main()</td><td>Entry point</td></tr>
+    <tr><td>return 0;</td><td>Ends <code>main()</code>, returns success</td></tr>
+    <tr><td>int, long, double, char, bool</td><td>Data types</td></tr>
+    <tr><td>if, else, for, while, switch, case, break, continue</td><td>Control structures</td></tr>
+    <tr><td>true, false</td><td>Boolean values</td></tr>
+    <tr><td>const, auto</td><td>Read-only, type deduction</td></tr>
+    <tr><td>new, delete</td><td>Dynamic memory</td></tr>
+    <tr><td>nullptr</td><td>Null pointer literal</td></tr>
+    <tr><td>class, struct, public, private, protected</td><td>OOP constructs</td></tr>
+    <tr><td>this</td><td>Pointer to current object</td></tr>
+    <tr><td>template</td><td>Generic programming</td></tr>
+    <tr><td>try, catch, throw</td><td>Exception handling</td></tr>
+    <tr><td>typedef / using</td><td>Type aliases</td></tr>
+    <tr><td>namespace</td><td>Code organization</td></tr>
+  </table>
+
+  <h2>📤 Input / Output Functions</h2>
+  <table>
+    <tr><th>Function</th><th>Description</th></tr>
+    <tr><td>cin &gt;&gt;</td><td>Standard input</td></tr>
+    <tr><td>cout &lt;&lt;</td><td>Standard output</td></tr>
+    <tr><td>getline(cin, str)</td><td>Read a line</td></tr>
+    <tr><td>cerr &lt;&lt;</td><td>Standard error (debug)</td></tr>
+    <tr><td>printf, scanf</td><td>C-style I/O</td></tr>
+  </table>
+
+  <h2>🔣 String Functions (&lt;string&gt;)</h2>
+  <table>
+    <tr><th>Function</th><th>Description</th></tr>
+    <tr><td>s.length(), s.size()</td><td>String length</td></tr>
+    <tr><td>s.substr(start, len)</td><td>Substring</td></tr>
+    <tr><td>s.find(\"abc\")</td><td>Find position</td></tr>
+    <tr><td>s.erase(pos, len)</td><td>Erase part</td></tr>
+    <tr><td>s.insert(pos, \"abc\")</td><td>Insert string</td></tr>
+    <tr><td>s.replace(pos, len, \"xyz\")</td><td>Replace substring</td></tr>
+    <tr><td>s += \"more\"</td><td>Append</td></tr>
+    <tr><td>to_string(int)</td><td>Int to string</td></tr>
+    <tr><td>stoi(string)</td><td>String to int</td></tr>
+    <tr><td>sort(s.begin(), s.end())</td><td>Sort characters</td></tr>
+  </table>
+
+  <h2>🧮 Math Functions (&lt;cmath&gt;)</h2>
+  <table>
+    <tr><th>Function</th><th>Description</th></tr>
+    <tr><td>abs(x)</td><td>Absolute value</td></tr>
+    <tr><td>sqrt(x), pow(x, y)</td><td>Square root, power</td></tr>
+    <tr><td>floor(x), ceil(x), round(x)</td><td>Rounding</td></tr>
+    <tr><td>log(x), log10(x)</td><td>Logs</td></tr>
+    <tr><td>sin(x), cos(x), tan(x)</td><td>Trigonometry</td></tr>
+    <tr><td>max(a, b), min(a, b)</td><td>Max/min</td></tr>
+  </table>
+
+  <h2>🔢 Bitwise Operators</h2>
+  <table>
+    <tr><th>Operator</th><th>Description</th></tr>
+    <tr><td>&amp;, |, ^, ~</td><td>AND, OR, XOR, NOT</td></tr>
+    <tr><td>&lt;&lt;, &gt;&gt;</td><td>Shifts</td></tr>
+    <tr><td>__builtin_popcount(n)</td><td>Count set bits</td></tr>
+    <tr><td>__builtin_clz(n), __builtin_ctz(n)</td><td>Leading/trailing zeros</td></tr>
+  </table>
+
+  <h2>📦 STL Commands</h2>
+  <table>
+    <tr><th>Container</th><th>Common Commands</th></tr>
+    <tr><td>vector&lt;T&gt;</td><td>push_back, [i], size, clear</td></tr>
+    <tr><td>set&lt;T&gt;</td><td>insert, erase, count, find</td></tr>
+    <tr><td>map&lt;K,V&gt;</td><td>[k]=v, count, erase, find</td></tr>
+    <tr><td>queue&lt;T&gt;, stack&lt;T&gt;, priority_queue&lt;T&gt;</td><td>push, pop, front/top</td></tr>
+    <tr><td>pair&lt;T1,T2&gt;</td><td>first, second</td></tr>
+    <tr><td>deque&lt;T&gt;</td><td>push_front, pop_back</td></tr>
+  </table>
+
+  <h2>Algorithms (&lt;algorithm&gt;)</h2>
+  <table>
+    <tr><th>Function</th><th>Description</th></tr>
+    <tr><td>sort(begin, end)</td><td>Sort container</td></tr>
+    <tr><td>reverse(begin, end)</td><td>Reverse order</td></tr>
+    <tr><td>next_permutation()</td><td>Next lexicographical order</td></tr>
+    <tr><td>lower_bound(), upper_bound()</td><td>Binary search helpers</td></tr>
+    <tr><td>accumulate(begin, end, 0)</td><td>Sum</td></tr>
+    <tr><td>count(begin, end, x)</td><td>Count occurrences</td></tr>
+    <tr><td>find(begin, end, x)</td><td>Find element</td></tr>
+    <tr><td>min_element(), max_element()</td><td>Find min/max</td></tr>
+  </table>
+
+  <h2>📁 File I/O (&lt;fstream&gt;)</h2>
+  <table>
+    <tr><th>Function</th><th>Description</th></tr>
+    <tr><td>ifstream fin(\"input.txt\")</td><td>Read from file</td></tr>
+    <tr><td>ofstream fout(\"output.txt\")</td><td>Write to file</td></tr>
+    <tr><td>fin &gt;&gt; var, fout &lt;&lt; var</td><td>I/O via file streams</td></tr>
+  </table>
+
+  <h2>🧪 Debugging Tools</h2>
+  <table>
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>assert(condition)</td><td>Crash if condition fails</td></tr>
+    <tr><td>cerr &lt;&lt; ...</td><td>Debug info to stderr</td></tr>
+  </table>
+
+  <h2>⏱️ Time Functions (&lt;chrono&gt;, &lt;ctime&gt;)</h2>
+  <table>
+    <tr><th>Function</th><th>Description</th></tr>
+    <tr><td>clock_t start = clock();</td><td>Start timer</td></tr>
+    <tr><td>double duration = (clock() - start) / (double)CLOCKS_PER_SEC;</td><td>Elapsed time</td></tr>
+    <tr><td>time(0)</td><td>Current time</td></tr>
+  </table>
+
+  <h2>🧵 Multithreading</h2>
+  <table>
+    <tr><th>Function</th><th>Description</th></tr>
+    <tr><td>#include &lt;thread&gt;</td><td>Header</td></tr>
+    <tr><td>thread t(func, args...)</td><td>Create thread</td></tr>
+    <tr><td>t.join()</td><td>Wait for thread</td></tr>
+  </table>
+</main>
+<footer>
+  © 2024 codeHPT by Gishan Chamith
+</footer>
+</body>
+</html>

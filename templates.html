@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>C++ Templates | codeHPT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>📋 C++ Competitive Programming Templates</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="competitive.html">Competitive</a>
+    <a href="commands.html">Commands</a>
+    <a href="algorithms.html">Algorithms</a>
+    <a href="templates.html">Templates</a>
+  </nav>
+</header>
+<main>
+  <h2>Essential C++ Templates for Competitive Programming</h2>
+
+  <!-- Template Block Example -->
+  <div class="template-block">
+    <div class="template-title">🔧 Base Template for Fast I/O and Setup</div>
+    <pre><code id="code1">
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+#define int long long  // optional: change to int64_t for large constraints
+#define all(x) x.begin(), x.end()
+#define endl '\\n'      // fast newline
+#define fastio() ios::sync_with_stdio(false); cin.tie(NULL)
+
+int32_t main() {
+    fastio();
+    // Your code here
+    return 0;
+}
+    </code></pre>
+    <button class="copy-btn" data-target="code1">Copy</button>
+  </div>
+
+  <div class="template-block">
+    <div class="template-title">📚 Input/Output Handling Template</div>
+    <pre><code id="code2">
+int n;
+cin >> n;
+vector&lt;int&gt; arr(n);
+for (int i = 0; i &lt; n; ++i) cin >> arr[i];
+
+for (int i = 0; i &lt; n; ++i) cout &lt;&lt; arr[i] &lt;&lt; " ";
+cout &lt;&lt; endl;
+    </code></pre>
+    <button class="copy-btn" data-target="code2">Copy</button>
+  </div>
+
+  <div class="template-block">
+    <div class="template-title">🧩 Modular Arithmetic Template</div>
+    <pre><code id="code3">
+const int MOD = 1e9 + 7;
+
+int add(int a, int b) { return (a + b) % MOD; }
+int sub(int a, int b) { return (a - b + MOD) % MOD; }
+int mul(int a, int b) { return (a * b) % MOD; }
+int power(int a, int b) {
+    int res = 1;
+    while (b) {
+        if (b & 1) res = mul(res, a);
+        a = mul(a, a);
+        b >>= 1;
+    }
+    return res;
+}
+int inv(int a) { return power(a, MOD - 2); } // MOD must be prime
+    </code></pre>
+    <button class="copy-btn" data-target="code3">Copy</button>
+  </div>
+
+  <div class="template-block">
+    <div class="template-title">🔁 Binary Search Template</div>
+    <pre><code id="code4">
+int binary_search(vector&lt;int&gt; &a, int target) {
+    int lo = 0, hi = a.size() - 1;
+    while (lo &lt;= hi) {
+        int mid = lo + (hi - lo) / 2;
+        if (a[mid] == target) return mid;
+        else if (a[mid] &lt; target) lo = mid + 1;
+        else hi = mid - 1;
+    }
+    return -1;
+}
+    </code></pre>
+    <button class="copy-btn" data-target="code4">Copy</button>
+  </div>
+
+  <div class="template-block">
+    <div class="template-title">🌲 DFS/BFS Template</div>
+    <pre><code id="code5">
+void dfs(int node, vector&lt;vector&lt;int&gt;&gt; &adj, vector&lt;bool&gt; &visited) {
+    visited[node] = true;
+    for (int neighbor : adj[node]) {
+        if (!visited[neighbor]) {
+            dfs(neighbor, adj, visited);
+        }
+    }
+}
+
+void bfs(int start, vector&lt;vector&lt;int&gt;&gt; &adj, vector&lt;bool&gt; &visited) {
+    queue&lt;int&gt; q;
+    q.push(start);
+    visited[start] = true;
+    while (!q.empty()) {
+        int node = q.front(); q.pop();
+        for (int neighbor : adj[node]) {
+            if (!visited[neighbor]) {
+                visited[neighbor] = true;
+                q.push(neighbor);
+            }
+        }
+    }
+}
+    </code></pre>
+    <button class="copy-btn" data-target="code5">Copy</button>
+  </div>
+
+  <div class="template-block">
+    <div class="template-title">📦 Union-Find (DSU)</div>
+    <pre><code id="code6">
+vector&lt;int&gt; parent, size;
+void make_set(int v) { parent[v] = v; size[v] = 1; }
+int find_set(int v) { return (v == parent[v] ? v : parent[v] = find_set(parent[v])); }
+void union_sets(int a, int b) {
+    a = find_set(a); b = find_set(b);
+    if (a != b) {
+        if (size[a] < size[b]) swap(a, b);
+        parent[b] = a; size[a] += size[b];
+    }
+}
+    </code></pre>
+    <button class="copy-btn" data-target="code6">Copy</button>
+  </div>
+  
+  <!-- You can continue adding more templates using the same pattern! -->
+</main>
+<footer>
+  © 2024 codeHPT by Gishan Chamith
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

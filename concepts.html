@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>C++ Concepts | codeHPT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>🧠 C++ Core Concepts</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="competitive.html">Competitive</a>
+    <a href="commands.html">Commands</a>
+    <a href="algorithms.html">Algorithms</a>
+  </nav>
+</header>
+<main>
+  <h2>1. Core Concepts</h2>
+  <table>
+    <tr><th>Concept</th><th>Description</th></tr>
+    <tr><td>Variable</td><td>A named storage for data. <code>int age = 21;</code></td></tr>
+    <tr><td>Data Types</td><td>Defines the type of variable (<code>int, char, float, double, bool</code>)</td></tr>
+    <tr><td>Operators</td><td>Symbols that perform operations: <code>+, -, *, /, %, ==, !=, &&</code></td></tr>
+    <tr><td>Control Flow</td><td>Structures: <code>if, else, switch, for, while, do-while, break, continue</code></td></tr>
+    <tr><td>Functions</td><td>Reusable code blocks. <code>int add(int a, int b) { return a + b; }</code></td></tr>
+    <tr><td>Scope</td><td>Variable visibility: local, global, static, extern</td></tr>
+    <tr><td>Type Casting</td><td>Convert types: <code>int x = (int)3.14;</code></td></tr>
+  </table>
+
+  <h2>2. Object-Oriented Concepts</h2>
+  <table>
+    <tr><th>Concept</th><th>Description</th></tr>
+    <tr><td>Class</td><td>Blueprint: <code>class Car { ... };</code></td></tr>
+    <tr><td>Object</td><td>Instance: <code>Car myCar;</code></td></tr>
+    <tr><td>Encapsulation</td><td>Group data & methods, use of <code>private/public/protected</code></td></tr>
+    <tr><td>Inheritance</td><td>Base class: <code>class B : public A {};</code></td></tr>
+    <tr><td>Polymorphism</td><td>Overloading & overriding</td></tr>
+    <tr><td>Abstraction</td><td>Interfaces and abstract classes</td></tr>
+    <tr><td>Constructor/Destructor</td><td>Initialize/clean-up an object</td></tr>
+  </table>
+
+  <h2>3. Standard Commands & Functions</h2>
+  <table>
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>cin, cout</td><td>Input and output stream</td></tr>
+    <tr><td>#include</td><td>Include libraries (<code>#include &lt;iostream&gt;</code>)</td></tr>
+    <tr><td>using namespace std;</td><td>Avoids prefixing with <code>std::</code></td></tr>
+    <tr><td>main()</td><td>Starting point of every C++ program</td></tr>
+    <tr><td>return 0;</td><td>Ends main function and returns success</td></tr>
+    <tr><td>new, delete</td><td>Dynamic memory allocation/deallocation</td></tr>
+    <tr><td>sizeof()</td><td>Size of data type or variable</td></tr>
+    <tr><td>typeid()</td><td>Type information (<code>&lt;typeinfo&gt;</code>)</td></tr>
+  </table>
+
+  <h2>4. Advanced Features</h2>
+  <table>
+    <tr><th>Feature</th><th>Description</th></tr>
+    <tr><td>Templates</td><td>Generic programming: <code>template&lt;typename T&gt;</code></td></tr>
+    <tr><td>STL</td><td>vector, stack, queue, map, set, etc.</td></tr>
+    <tr><td>Lambda Expressions</td><td>Anonymous functions: <code>[] (int x) { return x+1; }</code></td></tr>
+    <tr><td>Smart Pointers</td><td><code>unique_ptr, shared_ptr, weak_ptr</code></td></tr>
+    <tr><td>Namespaces</td><td>Organize code: <code>namespace mySpace { ... }</code></td></tr>
+    <tr><td>Exception Handling</td><td><code>try, catch, throw</code></td></tr>
+    <tr><td>File Handling</td><td><code>&lt;fstream&gt;</code>: <code>ifstream, ofstream</code></td></tr>
+    <tr><td>Multithreading</td><td><code>&lt;thread&gt;</code>: <code>std::thread t(func);</code></td></tr>
+  </table>
+
+  <h2>5. Preprocessor Directives</h2>
+  <table>
+    <tr><th>Directive</th><th>Use</th></tr>
+    <tr><td>#define</td><td>Define a macro</td></tr>
+    <tr><td>#ifdef, #ifndef, #endif</td><td>Conditional compilation</td></tr>
+    <tr><td>#pragma</td><td>Compiler-specific instructions</td></tr>
+  </table>
+
+  <h2>6. Memory Management</h2>
+  <table>
+    <tr><th>Concept</th><th>Description</th></tr>
+    <tr><td>new, delete</td><td>Allocate/deallocate memory</td></tr>
+    <tr><td>malloc, free</td><td>C-style memory management</td></tr>
+    <tr><td>stack vs heap</td><td>Stack is fast and auto-managed, heap is dynamic</td></tr>
+    <tr><td>const</td><td>Prevents modification</td></tr>
+    <tr><td>static</td><td>Persists across function calls</td></tr>
+    <tr><td>volatile</td><td>Tells compiler not to optimize</td></tr>
+  </table>
+
+  <h2>7. STL Containers & Algorithms</h2>
+  <table>
+    <tr><th>Type</th><th>Examples</th></tr>
+    <tr><td>Sequence</td><td>vector, list, deque, array</td></tr>
+    <tr><td>Associative</td><td>set, map, multiset, multimap</td></tr>
+    <tr><td>Unordered</td><td>unordered_set, unordered_map</td></tr>
+    <tr><td>Algorithms</td><td>sort, find, count, binary_search, etc.</td></tr>
+    <tr><td>Iterators</td><td>begin(), end(), rbegin(), rend()</td></tr>
+  </table>
+
+  <h2>8. Testing & Debugging</h2>
+  <table>
+    <tr><th>Tool</th><th>Use</th></tr>
+    <tr><td>assert()</td><td>Runtime check</td></tr>
+    <tr><td>g++ -g</td><td>Compile with debug info</td></tr>
+    <tr><td>valgrind</td><td>Memory leak detection (Linux)</td></tr>
+  </table>
+
+  <h2>9. Modern C++ Features (C++11–C++20)</h2>
+  <table>
+    <tr><th>Feature</th><th>Example</th></tr>
+    <tr><td>auto</td><td>auto x = 5;</td></tr>
+    <tr><td>nullptr</td><td>Replaces NULL</td></tr>
+    <tr><td>enum class</td><td>Strongly typed enums</td></tr>
+    <tr><td>move semantics</td><td>std::move()</td></tr>
+    <tr><td>initializer_list</td><td>vector<int> v = {1,2,3};</td></tr>
+    <tr><td>structured bindings</td><td>auto [a, b] = pair;</td></tr>
+    <tr><td>concepts</td><td>Define template constraints (C++20)</td></tr>
+  </table>
+
+  <h2>10. Useful Headers</h2>
+  <table>
+    <tr><th>Header</th><th>Use</th></tr>
+    <tr><td>&lt;iostream&gt;</td><td>Input/output</td></tr>
+    <tr><td>&lt;vector&gt;, &lt;map&gt;</td><td>STL containers</td></tr>
+    <tr><td>&lt;string&gt;</td><td>String operations</td></tr>
+    <tr><td>&lt;algorithm&gt;</td><td>Sorting, searching</td></tr>
+    <tr><td>&lt;cmath&gt;</td><td>Math functions</td></tr>
+    <tr><td>&lt;cstdlib&gt;</td><td>rand(), exit()</td></tr>
+    <tr><td>&lt;ctime&gt;</td><td>Time functions</td></tr>
+    <tr><td>&lt;thread&gt;</td><td>Multithreading</td></tr>
+    <tr><td>&lt;fstream&gt;</td><td>File handling</td></tr>
+  </table>
+</main>
+<footer>
+  © 2024 codeHPT by Gishan Chamith
+</footer>
+</body>
+</html>
